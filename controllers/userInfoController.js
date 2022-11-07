@@ -1,11 +1,5 @@
-import mongoose from "mongoose";
-import UsersReg from "./models/users";
 
-const db = `mongodb+srv://HenoAdmin:${process.env.DBPASS}@cluster0.iocguoh.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`
-
-mongoose.connect(db)
-    .then((res) => console.log('Connected to DB'))
-    .catch((error) => console.log(error))
+import UsersReg from "../models/users.js";
 
 
 export const getUsers = (req, res) => {
