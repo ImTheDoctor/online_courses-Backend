@@ -5,3 +5,8 @@ export const registerValidator = [
     body('password', 'Password must be at least 5 characters').isLength({ min: 5 }),
     body('fullname', 'Enter your name').isLength({ min: 3 }),
 ]
+
+export const loginValidator = [
+    body('email', 'Invalid email format').isEmail(),
+    body('password', 'Password must be at least 5 characters').isLength({ min: 5 }),
+]
