@@ -7,15 +7,15 @@ export default function checkAuth(req, res, next) {
     if (token) {
         try {
             const decoded = jwt.verify(token, process.env.JWT_SECRET)
-            req._id = decoded._id
+            req.id = decoded._id
             next()
         } catch (error) {
-            return res.status(403).json({
+            return res.status(401).json({
                 message: "No Access"
             })
         }
     } else {
-        return res.status(403).json({
+        return res.status(401).json({
             message: "No Access"
         })
     }

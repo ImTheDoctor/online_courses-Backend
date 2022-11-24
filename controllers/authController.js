@@ -20,7 +20,7 @@ export const registerController = async (req, res) => {
             email: req.body.email,
             fullname: req.body.fullname,
             passwordHash: pass_hash,
-            isAdmin:req.body.isAdmin
+            isAdmin: req.body.isAdmin
         })
 
         const user = await document.save();
@@ -39,16 +39,17 @@ export const registerController = async (req, res) => {
         })
     }
 }
+
 export const loginController = async (req, res) => {
     try {
-        const user = await UsersReg.findOne({email: req.body.email});
-        if(!user){
+        const user = await UsersReg.findOne({ email: req.body.email });
+        if (!user) {
             return res.status(404).json({
                 message: 'User is not found',
             });
         }
         const isValidPass = await bcrypt.compare(req.body.password, user._doc.passwordHash);
-        if(!isValidPass) {
+        if (!isValidPass) {
             return res.status(400).json({
                 message: 'Wrong login or password'
             })

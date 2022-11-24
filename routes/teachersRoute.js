@@ -1,15 +1,16 @@
 import express from "express";
 const router = express.Router()
-import {getTeacher, getTeachers, createTeacher, deleteTeacher, updateTeacher} from '../controllers/teachersController.js'
+import { getTeacher, getTeachers, createTeacher, deleteTeacher, updateTeacher } from '../controllers/teachersController.js'
+import checkAuth from "../middlewares/checkAuth.js";
 
-router.get('/', getTeacher)
+router.get('/', getTeachers)
 
-router.get('/:id', getTeachers)
+router.get('/:id', getTeacher)
 
-router.post('/', createTeacher)
+router.post('/', checkAuth, createTeacher)
 
-router.delete('/:id', deleteTeacher)
+router.delete('/:id', checkAuth, deleteTeacher)
 
-router.patch('/:id', updateTeacher)
+router.patch('/:id', checkAuth, updateTeacher)
 
 export default router

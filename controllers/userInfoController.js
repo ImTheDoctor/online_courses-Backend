@@ -32,7 +32,7 @@ export const getUser = async (req, res) => {
 export const deleteUser = async (req, res) => {
     try {
         const id = req.params.id
-        await UsersReg.findByIdAndRemove({_id:id})
+        await UsersReg.findByIdAndRemove({ _id: id })
         res.status(200).json(`User with id ${id} has been deleted`)
     } catch (error) {
         console.log(error);
@@ -50,7 +50,12 @@ export const updateUser = async (req, res) => {
 
         const salt = await bcrypt.genSalt(10)
         const pass_hash = await bcrypt.hash(body.password, salt)
-        await UsersReg.findByIdAndUpdate({ _id: id }, { "fullname": body.fullname, "email": body.email, "passwordHash": pass_hash, "isAdmin": body.isAdmin })
+        await UsersReg.findByIdAndUpdate({ _id: id }, {
+            "fullname": body.fullname,
+            "email": body.email,
+            "passwordHash": pass_hash,
+            "isAdmin": body.isAdmin
+        })
         res.status(200).json(`User with id ${id} has been updated`)
     } catch (error) {
         console.log(error);

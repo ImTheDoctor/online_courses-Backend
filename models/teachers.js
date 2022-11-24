@@ -8,7 +8,7 @@ const teachersSchema = new Schema({
         required: true,
     },
     position: {
-        type:String,
+        type: String,
         required: true,
     },
     teacherImgUrl: {
@@ -19,23 +19,17 @@ const teachersSchema = new Schema({
         type: String,
         required: true,
     },
-    info: {
-        type: [{
-            rating: String,
-            coursesQty: Number,
-            studentsQty: Number
-        }],
-        required: true,
-    },
-    socials:{
-        type: [{
-            facebook : String,
-            behance : String,
-            twitter : String,
-            linkedin : String
-        }],
-        required : true
-    },
+    info: [{
+        rating: { type: Number, default: 0 },
+        coursesQty: { type: Number, default: 0 },
+        studentsQty: { type: Number, default: 0 }
+    }],
+    socials: [{
+        facebook: String,
+        behance: String,
+        twitter: String,
+        linkedin: String,
+    }],
 }, { timestamps: true });
 
 export default mongoose.model('Teachers', teachersSchema);

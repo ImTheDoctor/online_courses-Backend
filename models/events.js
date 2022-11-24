@@ -24,7 +24,7 @@ const eventSchema = new Schema({
     },
     time: {
         type: [{
-            day: String,
+            day: { month: String, day: String },
             time: {
                 from: String,
                 to: String

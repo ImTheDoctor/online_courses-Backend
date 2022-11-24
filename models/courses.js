@@ -15,19 +15,21 @@ const coursesSchema = new Schema({
         type: String,
         required: true,
     },
+    tags: {
+        type: Array,
+        default: []
+    },
     whatYouWillLearn: {
-        type: String,
-        required: true,
+        type: Array,
+        default: []
     },
-    dates:{
-        type: [{
-            from : String,
-            to : String
-        }],
-        required : true
-    },
-    teacherID:{
-        type: String,
+    dates: [{
+        from: String,
+        to: String,
+    }],
+    teacherID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Teachers',
         required: true,
     }
 }, { timestamps: true });
