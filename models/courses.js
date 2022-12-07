@@ -23,10 +23,10 @@ const coursesSchema = new Schema({
         type: Array,
         default: []
     },
-    dates: [{
-        from: String,
-        to: String,
-    }],
+    dates: {
+        type: Array,
+        default:[],
+    },
     teacherID: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Teachers',

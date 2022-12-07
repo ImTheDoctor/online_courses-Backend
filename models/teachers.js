@@ -12,24 +12,13 @@ const teachersSchema = new Schema({
         required: true,
     },
     teacherImgUrl: {
-        type: String,
-        required: true,
+        type: Object,
     },
     description: {
         type: String,
         required: true,
     },
-    info: [{
-        rating: { type: Number, default: 0 },
-        coursesQty: { type: Number, default: 0 },
-        studentsQty: { type: Number, default: 0 }
-    }],
-    socials: [{
-        facebook: String,
-        behance: String,
-        twitter: String,
-        linkedin: String,
-    }],
+    socials: [String]
 }, { timestamps: true });
 
 export default mongoose.model('Teachers', teachersSchema);

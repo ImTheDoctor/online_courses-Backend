@@ -43,6 +43,8 @@ export const registerController = async (req, res) => {
 export const loginController = async (req, res) => {
     try {
         const user = await UsersReg.findOne({ email: req.body.email });
+        console.log(req.body.email);
+        console.log(req.body.password);
         if (!user) {
             return res.status(404).json({
                 message: 'User is not found',

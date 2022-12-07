@@ -30,21 +30,21 @@ export const getTeacher = async (req, res) => {
 // Create Teacher
 export const createTeacher = async (req, res) => {
     try {
-        const { fullname, position, teacherImgUrl, description, info, socials } = req.body
+        const { fullname, position, description, socials } = req.body
         const teacher = new Teachers({
             fullname,
             position,
-            teacherImgUrl,
+            teacherImgUrl: req.file,
             description,
-            info,
-            socials
+            socials: socials.split(",")
         })
+        console.log(teacher);
         await teacher.save();
-        res.status(200).send(teacher)
+        res.status(200).send('teacher')
     } catch (error) {
         console.log(error);
         res.status(404).json({
-            message: 'Teacher was not created'
+            message: error
         })
     }
 }
@@ -67,19 +67,16 @@ export const deleteTeacher = async (req, res) => {
 export const updateTeacher = async (req, res) => {
     try {
         const id = req.params.id
-        const { fullname, position, teacherImgUrl, description, info, socials } = req.body
-        
-        if (id.match(/^[0-9a-fA-F]{24}$/)) {
-            await Teachers.findByIdAndUpdate({ _id: id }, {
-                fullname,
-                position,
-                teacherImgUrl,
-                description,
-                info,
-                socials
-            })
-            res.status(200).json(`Teacher with id ${id} has been updated`)
-        }
+        const { fullname, position, description, socials } = req.body
+
+        await Teachers.findByIdAndUpdate({ _id: id }, {
+            fullname,
+            position,
+            teacherImgUrl: req.file,
+            description,
+            socials: socials.split(",")
+        })
+        res.status(200).json(`Teacher with id ${id} has been updated`)
     } catch (error) {
         console.log(error);
         res.status(404).json({
