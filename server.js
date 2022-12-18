@@ -17,6 +17,7 @@ import userInfoRoute from './routes/userInfoRoute.js'
 import coursesRoute from './routes/coursesRoute.js'
 import teachersRoute from './routes/teachersRoute.js'
 import eventsRoute from './routes/eventsRoute.js'
+import contactRoute from './routes/contactRoute.js'
 
 const app = express();
 const PORT = process.env.PORT || 8001
@@ -35,6 +36,7 @@ app.use('/users', checkAuth, userInfoRoute)
 app.use('/courses', coursesRoute)
 app.use('/teachers', teachersRoute)
 app.use('/events', eventsRoute)
+app.use('/contact', contactRoute)
 
 app.listen(PORT, (error) => {
     error ? console.log(error) : console.log(`Listening port ${PORT}`)
