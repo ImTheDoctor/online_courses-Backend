@@ -1,6 +1,6 @@
 # Createx - Online Courses (Backend Part)
 
-Welcome to Createx. This is a fully functional website where you can buy online courses. The backend is written in Node JS/Express, the admin panel is in React and the UI framework is ANT Design, and the client side is written in NEXT JS.
+Welcome to Createx. This is a fully functional website where you can buy online courses. The backend is written using Node JS/Express, the admin panel built with React and the UI framework is ANT Design. The client side is written in NEXT JS.
 
 ## ADMIN PANEL AND CLIENT 
 
@@ -22,17 +22,17 @@ First you need to clone the repository
 
 ```
 $ git clone https://github.com/ImTheDoctor/online_courses-Backend.git
-$ cd .. project
+$ cd online_courses-Backend
 ```
 
-After cloning do install dependencies
+After cloning, install dependencies
 
 
 ```
 $ npm install
 ```
 
-Create `.env` file and write your tokens
+Create `.env` file and write your variables
 
 ```
 PORT = Write your port
@@ -56,7 +56,7 @@ Setup MongoDB
 
 ## Features
 
-There is a login and registration (BCrypt & JWT token was used to encrypt the password)
+There is a login and registration feature (BCrypt & JWT token was used to encrypt the password)
 
 - Login and Register routes
 ```
@@ -64,14 +64,14 @@ There is a login and registration (BCrypt & JWT token was used to encrypt the pa
   - http://localhost:`PORT`/register
 ```
 
-Nodemailer used for contacts(Works with GMail)
+Nodemailer used for contacts(Works with Gmail)
 
 - Contacts
 ```
   - http://localhost:`PORT`/contact
 ```
 
-CRUD operations for courses and teachers(Used multer for save images in uploads folder)
+CRUD operations for courses and teachers(Used multer to save images in uploads folder)
 
 - Courses
 ```
