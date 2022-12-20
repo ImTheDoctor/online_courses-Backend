@@ -59,22 +59,29 @@ Setup MongoDB
 There is a login and registration (BCrypt & JWT token was used to encrypt the password)
 
 - Login and Register routes
+```
   - http://localhost:`PORT`/login
   - http://localhost:`PORT`/register
+```
 
 Nodemailer used for contacts(Works with GMail)
 
 - Contacts
+```
   - http://localhost:`PORT`/contact
-  
+```
+
 CRUD operations for courses and teachers(Used multer for save images in uploads folder)
 
 - Courses
+```
   - http://localhost:`PORT`/courses
+```
 
 - Teachers
+```
   - http://localhost:`PORT`/teachers
-
+```
 
 
 ## Contacts
